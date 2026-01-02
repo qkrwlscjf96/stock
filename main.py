@@ -96,8 +96,8 @@ class Slack:
 if __name__ == "__main__":
 
     # 슬랙 통신
-    slack_token = "xoxb-6292293029505-6283381756291-AwbxwiLjLc6h6q1a3OhqE9MO" 
-    channel_id = "stock-mesasage"
+    slack_token = "#" 
+    channel_id = "#"
     slack = Slack(channel_id, slack_token)
     
     # 주가 데이터 불러오기
