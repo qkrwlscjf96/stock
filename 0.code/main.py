@@ -18,7 +18,7 @@ if __name__ == "__main__":
     
     # 작업 디렉토리 설정
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    current_dir = "C:/Users/wlscj/coding/stock"
+    #current_dir = "C:/Users/wlscj/coding/stock"
     os.chdir(current_dir)
     
     # 분석할 주식 리스트 및 기간 설정
