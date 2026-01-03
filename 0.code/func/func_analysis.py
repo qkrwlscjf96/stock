@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 # 주가 추세 분석 함수
 def stock_trend_analysis(current_dir,my_stock,end_date,df): 
-    save_path = Path(current_dir) / "3.result" / f"{my_stock}_{end_date}_trend.png"
+    save_path = Path(current_dir).parent / "3.result" / f"{my_stock}_{end_date}_trend.png"
     df = df.copy()
 
     df["MA20"] = df["Close"].rolling(20).mean()
