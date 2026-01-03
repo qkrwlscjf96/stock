@@ -2,9 +2,9 @@
 chcp 65001 > nul
 
 set PYTHON=C:\Users\wlscj\AppData\Local\Programs\Python\Python311\python.exe
-set WORKDIR=C:\Users\wlscj\coding\stock
+set WORKDIR=C:\Users\wlscj\coding\stock\0.code
 set SCRIPT=main.py
-set LOGDIR=C:\Users\wlscj\coding\stock\logs
+set LOGDIR=C:\Users\wlscj\coding\stock\99.logs
 
 if not exist "%LOGDIR%" mkdir "%LOGDIR%"
 
