@@ -46,4 +46,4 @@ class Slack:
 def stock_data_loading(ticker_symbol, start_date, end_date):
     ticker = yf.Ticker(ticker_symbol)
     df = ticker.history(start=start_date, end=end_date)
-    return df      
+    return df

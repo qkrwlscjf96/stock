@@ -1,21 +1,29 @@
 import os
+import sys
+from pathlib import Path
 from dotenv import load_dotenv
 from datetime import date,timedelta
-from func.func_analysis import *
-from func.func_api import *
+from utils.func_analysis import *
+from utils.func_api import *
+from utils.func_common import *
 
 if __name__ == "__main__":
+    
+    # 현재 파일 기준 디렉토리
+    BASE_DIR = Path(__file__).resolve().parent
+    #BASE_DIR = Path.cwd() / "0.code"
+        
+    # 중복 실행 방지
+    joblog_path = (BASE_DIR / ".." / "99.logs"/ "job.log").resolve()
+    if already_ran_today(joblog_path):
+        print("오늘 이미 실행 → 종료")
+        sys.exit(0)
 
     # 슬랙 통신
     load_dotenv()  # .env 파일 로드
-
     slack_token = os.getenv("SLACK_TOKEN")
     channel_id = os.getenv("CHANNEL_ID")
     slack = Slack(channel_id, slack_token)
-    
-    # 작업 디렉토리 설정
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    os.chdir(current_dir)
     
     # 분석할 주식 리스트 및 기간 설정
     my_stocks = ["GOOGL","MSFT","AAPL"]
@@ -26,7 +34,7 @@ if __name__ == "__main__":
         
         # 주가 데이터 불러오기
         df = stock_data_loading(my_stock, start_date, end_date)
-        signal, save_path = stock_trend_analysis(current_dir,my_stock,end_date,df)
+        signal, save_path = stock_trend_analysis(BASE_DIR,my_stock,end_date,df)
         
         # 분석
         if signal is not None:
