@@ -10,8 +10,8 @@ from utils.func_common import *
 if __name__ == "__main__":
     
     # 현재 파일 기준 디렉토리
-    #BASE_DIR = Path(__file__).resolve().parent
-    BASE_DIR = Path.cwd() / "0.code"
+    BASE_DIR = Path(__file__).resolve().parent
+    #BASE_DIR = Path.cwd() / "0.code"
         
     # 중복 실행 방지
     joblog_path = (BASE_DIR / ".." / "99.logs"/ "job.log").resolve()
