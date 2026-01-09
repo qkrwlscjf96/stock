@@ -10,13 +10,13 @@ from utils.func_common import *
 if __name__ == "__main__":
     
     # 현재 파일 기준 디렉토리
-    BASE_DIR = Path(__file__).resolve().parent
-    #BASE_DIR = Path.cwd() / "0.code"
+    #BASE_DIR = Path(__file__).resolve().parent
+    BASE_DIR = Path.cwd() / "0.code"
         
     # 중복 실행 방지
     joblog_path = (BASE_DIR / ".." / "99.logs"/ "job.log").resolve()
-    if already_ran_today(joblog_path):
-        print("오늘 이미 실행 → 종료")
+    if already_ran_today_twice(joblog_path):
+        print("Already ran today. Exiting.")
         sys.exit(0)
 
     # 슬랙 통신

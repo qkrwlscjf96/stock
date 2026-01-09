@@ -44,6 +44,13 @@ class Slack:
             print(e)
       
 def stock_data_loading(ticker_symbol, start_date, end_date):
+    """
+    주어진 티커 심볼과 날짜 범위에 따라 주식 데이터를 로드합니다.
+    :param ticker_symbol: 주식 티커 심볼 (예: 'AAPL')
+    :param start_date: 시작 날짜 (YYYY-MM-DD 형식)
+    :param end_date: 종료 날짜 (YYYY-MM-DD 형식)
+    :return: 주식 데이터프레임
+    """
     ticker = yf.Ticker(ticker_symbol)
     df = ticker.history(start=start_date, end=end_date)
     return df
