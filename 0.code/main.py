@@ -26,7 +26,7 @@ if __name__ == "__main__":
     slack = Slack(channel_id, slack_token)
     
     # 분석할 주식 리스트 및 기간 설정
-    my_stocks = ["GOOGL","MSFT","AAPL"]
+    my_stocks = ["GOOGL","MSFT","AAPL","QQQ","^GSPC"]
     end_date = date.today()
     start_date = end_date + timedelta(days=-365)
     
