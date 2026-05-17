@@ -20,6 +20,9 @@ Yahoo Finance 데이터를 수집해 주요 종목의 가격 흐름을 점검하
 
 ```text
 stock/
+├── logs/
+│   └── job.log
+├── requirements.txt
 ├── src/
 │   ├── main.py
 │   └── utils/
@@ -31,21 +34,23 @@ stock/
 └── README.md
 ```
 
+- `logs`: 실행 로그 파일이 저장되는 폴더입니다.
+- `requirements.txt`: Python 3.12.10 기준 의존성 목록입니다.
 - `src`: 실행 코드와 유틸리티 모듈이 들어 있습니다.
 - `result`: 이상 징후 발생 시 생성되는 차트 이미지가 저장됩니다.
 
 ## 실행 환경
 
-- Python 3.x
+- Python 3.12.10
 - `slack-sdk`
 - `yfinance`
 - `python-dotenv`
 - `matplotlib`
 
-예시 설치:
+설치:
 
 ```bash
-pip install slack-sdk yfinance python-dotenv matplotlib
+pip install -r requirements.txt
 ```
 
 ## 환경 변수
@@ -79,7 +84,7 @@ python3 src/main.py
 ## 동작 방식
 
 1. `src/main.py`가 실행됩니다.
-2. `99.logs/job.log`를 확인해 당일 2회 이상 실행되었는지 검사합니다.
+2. `logs/job.log`를 확인해 당일 2회 이상 실행되었는지 검사합니다.
 3. 종목별 시세 데이터를 조회합니다.
 4. 이동평균 기반 이상 징후를 분석합니다.
 5. 이상 징후가 있으면 차트를 `result` 폴더에 저장하고 Slack으로 이미지를 전송합니다.

@@ -14,7 +14,7 @@ if __name__ == "__main__":
     #BASE_DIR = Path.cwd() / "src"
         
     # 중복 실행 방지
-    joblog_path = (BASE_DIR / ".." / "99.logs"/ "job.log").resolve()
+    joblog_path = (BASE_DIR / ".." / "logs" / "job.log").resolve()
     if already_ran_today_twice(joblog_path):
         print("Already ran today. Exiting.")
         sys.exit(0)
@@ -44,7 +44,6 @@ if __name__ == "__main__":
         else:
             slack.send_text(f"{my_stock} {end_date} 이상 무")
             print(f"{my_stock} {end_date} 이상 무")
-
 
 
 
