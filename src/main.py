@@ -11,7 +11,7 @@ if __name__ == "__main__":
     
     # 현재 파일 기준 디렉토리
     BASE_DIR = Path(__file__).resolve().parent
-    #BASE_DIR = Path.cwd() / "0.code"
+    #BASE_DIR = Path.cwd() / "src"
         
     # 중복 실행 방지
     joblog_path = (BASE_DIR / ".." / "99.logs"/ "job.log").resolve()
@@ -44,7 +44,6 @@ if __name__ == "__main__":
         else:
             slack.send_text(f"{my_stock} {end_date} 이상 무")
             print(f"{my_stock} {end_date} 이상 무")
-
 
 
 
